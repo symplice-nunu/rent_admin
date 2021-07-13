@@ -40,10 +40,10 @@
                     <a href="renters.php" ><span class="lab la-google-wallet"></span>
                         <span>Cancel Rent Agreement</span></a>
                 </li>
-                <!-- <li>
-                    <a href=""><span class="las la-clipboard-list"></span>
-                        <span>About</span></a>
-                </li> -->
+                <li>
+                    <a href="logout.php"><span class="las la-arrow-right"></span>
+                        <span>Sign Out</span></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -66,7 +66,9 @@
                 <div>
                     <h4>Symplice</h4>
                     <small>Super Admin</small>
-                </div>
+                </div>   
+                        
+                
             </div>
         </header>
         <div class="col-md-12">
