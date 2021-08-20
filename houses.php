@@ -1,3 +1,6 @@
+<?php
+include('authentication.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,14 +131,14 @@ if (isset($_SESSION['status']) && $_SESSION['status'] != "") {
                 <div class="card-single">
                 <?php
                     include('dbcon.php');
-                    $ref = "application/";
+                    $ref = "houseapplication/";
                     $totalapplication = $database->getReference($ref)->getSnapshot()->numChildren();
                     ?>
                     <div>
                         <h1>
                         <?php echo $totalapplication; ?>
                         </h1>
-                        <span>Requested Houses</span>
+                        <span>House Applications</span>
                     </div>
                     <div>
                         <span class="las la-archive">
@@ -207,7 +210,7 @@ foreach($fetchdata as $key => $row)
 $i++;
 ?>
                                     <tr>
-                                    <td><?php echo $row['ehouseno']; ?></td>
+                                    <td><?php echo $row['houseno']; ?></td>
                                     <td> 
                                     <div class="info"><a href="<?php echo $row['imageUrl']; ?>"><img src="<?php echo $row['imageUrl']; ?>" alt="" width="40px" height="40px"></a> </div></td>
                                     

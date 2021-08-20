@@ -1,3 +1,6 @@
+<?php
+include('authentication.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,14 +114,14 @@
                 <div class="card-single">
                 <?php
                     include('dbcon.php');
-                    $ref = "application/";
+                    $ref = "houseapplication/";
                     $totalapplication = $database->getReference($ref)->getSnapshot()->numChildren();
                     ?>
                     <div>
                         <h1>
                         <?php echo $totalapplication; ?>
                         </h1>
-                        <span>Requested Houses</span>
+                        <span>House Applications</span>
                     </div>
                     <div>
                         <span class="las la-archive">
@@ -205,16 +208,25 @@ new Chart("myChart", {
                         </div>
                         <div class="card-body">
                         <canvas id="PieChart" style="width:100%;max-width:600px"></canvas>
+                        <?php
+                    include('dbcon.php');
+                    $ref = "mp/";
+                    $reff = "bp/";
+                    $refff = "returnedpayments/";
+                    $mpayments = $database->getReference($ref)->getSnapshot()->numChildren();
+                    $bpayments = $database->getReference($reff)->getSnapshot()->numChildren();
+                    $rpayments = $database->getReference($refff)->getSnapshot()->numChildren();
+                    ?>
 
 <script>
-var xValues = ["Houses", "Rent Agreement", "Featured Houses", "Requested Houses", "Cancel Rent Agreement"];
-var yValues = [<?php echo $totalhouses; ?>, <?php echo $totalrentagreement; ?>, <?php echo $totalfavoritehouses; ?>, <?php echo $totalapplication; ?>, <?php echo $totalcancelrents; ?>];
+var xValues = ["Monthly Payments", "Bail payments", "Returned Bail"];
+var yValues = [<?php echo $mpayments; ?>, <?php echo $bpayments; ?>, <?php echo $rpayments; ?>];
 var barColors = [
-  "#b91d47",
+  "#1e7145",
   "#00aba9",
   "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
+//   "#e8c3b9",
+  
 ];
 
 new Chart("PieChart", {
@@ -229,7 +241,7 @@ new Chart("PieChart", {
   options: {
     title: {
       display: true,
-      text: "Rent To Own 2021"
+      text: "Payments comparison"
     }
   }
 });

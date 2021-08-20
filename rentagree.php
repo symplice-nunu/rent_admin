@@ -1,3 +1,6 @@
+<?php
+include('authentication.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,14 +131,14 @@ if (isset($_SESSION['status']) && $_SESSION['status'] != "") {
                 <div class="card-single">
                 <?php
                     include('dbcon.php');
-                    $ref = "application/";
+                    $ref = "houseapplication/";
                     $totalapplication = $database->getReference($ref)->getSnapshot()->numChildren();
                     ?>
                     <div>
                         <h1>
                         <?php echo $totalapplication; ?>
                         </h1>
-                        <span>Requested Houses</span>
+                        <span>House Applications</span>
                     </div>
                     <div>
                         <span class="las la-archive">

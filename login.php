@@ -15,7 +15,15 @@
   </head>
 
   <body style="background-color: teal;">
-
+<div class="col-md-4">
+  <?php
+  if(isset($_SESSION['status']))
+  {
+    echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
+    unset($_SESSION['status']);
+  }
+  ?>
+</div>
 <form class="box" action="logincode.php" method="post" style="background-color: lightskyblue;">
 
   <h1>Login</h1>
