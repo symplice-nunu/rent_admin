@@ -78,15 +78,7 @@ include('authentication.php');
                 
             </div>
         </header>
-        <div class="col-md-12">
-        <?php
-  if(isset($_SESSION['status']))
-  {
-    echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
-    unset($_SESSION['status']);
-  }
-  ?>
-</div>
+        
         <main>
             
             <div class="recent-grid">
@@ -102,6 +94,13 @@ include('authentication.php');
                             </button>
 
                         </div>
+                        <?php
+  if(isset($_SESSION['status']))
+  {
+    echo "<h4 class='alert alert-success'>".$_SESSION['status']."</h4>";
+    unset($_SESSION['status']);
+  }
+  ?>
                         <div class="card-body" id="tblCustomers">
                     
                         <div><img src="img/na-rent-to-own-homes-removebg-preview.png" alt="" width="10%"><h3 style="margin-left: 17.5em; margin-top: 1em; margin-bottom: 2em;">Users List</h3></div>

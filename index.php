@@ -12,17 +12,15 @@ session_start();
     <meta charset="utf-8">
 
     <title>َLogin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    
-    
-
     <link rel="stylesheet" href="login.css">
 
   </head>
 
   <body style="background-color: teal;">
 
-  <div class="col-md-4">
+<form class="box" onsubmit="return validate();" action="logincode.php" method="post" style="background-color: lightskyblue;">
+
+  <h1>Login</h1>
   <?php
   if(isset($_SESSION['status']))
   {
@@ -30,10 +28,6 @@ session_start();
     unset($_SESSION['status']);
   }
   ?>
-</div>
-<form class="box" onsubmit="return validate();" action="logincode.php" method="post" style="background-color: lightskyblue;">
-
-  <h1>Login</h1>
   <div id="error_message"></div>
   <input type="text" name="email" id="email" placeholder="Email">
 
