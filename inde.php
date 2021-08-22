@@ -43,6 +43,9 @@ include('authentication.php');
                 <li>
                     <a href="renters.php"><span class="lab la-google-wallet"></span>
                         <span>Cancel Rent Agreement</span></a>
+                </li><li>
+                    <a href="users-list.php"><span class="las la-users"></span>
+                        <span>Users</span></a>
                 </li>
                 <li>
                     <a href="logout.php"><span class="las la-arrow-right"></span>

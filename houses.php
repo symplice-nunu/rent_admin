@@ -46,6 +46,10 @@ include('authentication.php');
                         <span>Cancel Rent Agreement</span></a>
                 </li>
                 <li>
+                    <a href="users-list.php"><span class="las la-users"></span>
+                        <span>Users</span></a>
+                </li>
+                <li>
                     <a href="logout.php"><span class="las la-arrow-right"></span>
                         <span>Sign Out</span></a>
                 </li>

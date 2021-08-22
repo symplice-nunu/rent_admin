@@ -2,6 +2,80 @@
 session_start();
 include('dbcon.php');
 
+if(isset($_POST['register_now_btn']))
+{
+$name = $_POST['fullname'];
+$phone = "+25".$_POST['phone'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$userProperties = [
+    'email' => $email,
+    'emailVerified' => false,
+    'phoneNumber' => $phone,
+    'password' => $password,
+    'displayName' => $name,
+];
+$createdUser = $auth->createUser($userProperties);
+if ($createdUser) {
+    $_SESSION['status'] = "User Created Successfully";
+    header("Location: register.php");
+} else {
+    $_SESSION['status'] = "User nOT Created";
+    header("Location: register.php");
+}
+
+}
+
+if(isset($_POST['enabledisable_user_btn']))
+{
+    $disena = $_POST['account_disena'];
+    $uid = $_POST['user_id'];
+    if($disena == "disable")
+    {
+        $updatedUser = $auth->disableUser($uid);
+        $msg = "User A/C is disabled";
+    }
+    else
+    {
+        $updatedUser = $auth->enableUser($uid);
+        $msg = "User A/C is enabled";
+
+    }
+
+    
+    if ($updatedUser) {
+        $_SESSION['status'] = "$msg";
+        header("Location: user-edit.php?id=$uid");
+
+    } else {
+        $_SESSION['status'] = "Something Went Wrong";
+        header("Location: user-edit.php?id=$uid");
+    }
+}
+
+
+if(isset($_POST['user_edit_update_btn']))
+{
+    $name = $_POST['fullname'];
+    $phone = $_POST['phone'];
+
+    $uid = $_POST['user_id'];
+    $properties = [
+        'displayName' => $name,
+        'phoneNumber' => $phone,
+    ];
+    $updatedUser = $auth->updateUser($uid, $properties);
+    if ($updatedUser) {
+        $_SESSION['status'] = "User Updated Successfully";
+        header("Location: user-edit.php?id=$uid");
+
+    } else {
+        $_SESSION['status'] = "User Not Updated";
+        header("Location: user-edit.php?id=$uid");
+    }
+    
+}
+
 if(isset($_POST['save_push_data']))
 {
     $houseid = $_POST['ehouseno'];
@@ -76,6 +150,23 @@ if(isset($_POST['update_data']))
 
 
 
+if(isset($_POST['user_delete_btn']))
+{
+    $token = $_POST['ref_toke_delete'];
+
+    $uid = $_POST['user_id'];
+    try {
+        $auth->deleteUser($uid);
+        $_SESSION['status']= "User Account Deleted Successfully";
+        header("Location: users-list.php");
+        exit();
+    } catch (Exception $e) {
+        $_SESSION['status']= "User Account Not Found";
+        header("Location: users-list.php");
+        exit();
+    }
+    
+}
 
 if(isset($_POST['delete_data']))
 {
