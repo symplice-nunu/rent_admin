@@ -4,7 +4,7 @@ unset($_SESSION['verified_user_id']);
 unset($_SESSION['idTokenString']);
 
 $_SESSION['status'] = "logged out Successfully";
-            header("Location: login.php");
+            header("Location: index.php");
             exit();
 
 ?>

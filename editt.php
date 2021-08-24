@@ -24,7 +24,8 @@ $getdata = $database->getReference($ref)->getChild($token)->getValue();
 <div style=" margin-top: 2em;">
 <p>This is a legally binding agreement. It is intended to promote household harmony by clarifying the expectations </br>
 and responsibilities of the homeowner or principal tenant (landlord) and tenant when they share the same home.</br>
- All parties shall receive a copy of this document.</p>
+ All parties shall receive a copy of this document. <br> <br> <b><?php echo $getdata['rentername']; ?></b> will rent a house for seventy (70) months to complete the purchase of the house <br />
+ <b><?php echo $getdata['houseno']; ?></b> Located At <b><?php echo $getdata['location']; ?></b>.</p> 
  <h3 style="margin-top: 1em; margin-bottom: 2em;">Rent Unit Located At</h3>
  <h3 style="margin-top: 1em; margin-bottom: 2em;"><?php echo $getdata['location']; ?></h3>
  <div style="margin-top: -2.3em;">Address</div>
@@ -38,8 +39,8 @@ and responsibilities of the homeowner or principal tenant (landlord) and tenant 
  <h3 style="margin-top: 1em; margin-bottom: 2em;"><?php echo $getdata['rentername']; ?></h3>
 </div>
 <h3 style="margin-top: 1.5em; margin-bottom: 2em;">Rent</h3>
-<p style="margin-top: -1.9em; margin-bottom: 2em;"><b>$</b>&nbsp<b>350</b>, payable monthly on the &nbsp 1 &nbsp day of the month, made payable to</br>
-<b><?php echo $getdata['rentername']; ?></b> house Id: <b><?php echo $getdata['houseno']; ?></b></p>
+<p style="margin-top: -1.9em; margin-bottom: 2em;"><b>$</b>&nbsp<b>350</b>, payable monthly on the &nbsp 1 &nbsp day of the month, made payable to
+<b><?php echo $getdata['investorname']; ?></b> </br> house Id: <b><?php echo $getdata['houseno']; ?></b></p>
 <h3 style="margin-top: 1em; margin-bottom: 2em;">Deposit</h3>
  <div>
  <div style="margin-top: -1.9em;">Security Deposit:       Paid on &nbsp<?php echo $getdata['date']; ?>&nbsp Amount $ &nbsp 350</div>
@@ -67,7 +68,7 @@ identified at the pre-move out inspection at his or her expense.</p>
 
 </div>
 </div>
-<div style="margin-top: 1em; margin-left: 19em;">
+<div style="margin-top: 3em; margin-bottom: 3em; margin-left: 19em;">
 <button id="btnExport" style="width: 22em; height: 2em; background: #7499E8; border-radius: 10px; border: 1px solid #7499E8; color: white; font-size: .8rem; "> Generate Contract</button>
 <button  style="width: 22em; height: 2em; background: grey; border-radius: 10px; border: 1px solid grey; color: white; font-size: .8rem; "> <a href="rentagree.php" style="text-decoration: none;">Close</a></button>
 

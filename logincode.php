@@ -36,8 +36,8 @@ if(isset($_POST['login_now_btn']))
 
     }catch(\Kreait\Firebase\Exception\Auth\UserNotFound $e){
 
-        $_SESSION['status'] = "Email is Incorrect";
-        header("Location: login.php");
+        $_SESSION['status'] = "Email Not Found";
+        header("Location: index.php");
         exit();
     }
 }

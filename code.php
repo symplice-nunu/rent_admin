@@ -20,7 +20,7 @@ if ($createdUser) {
     $_SESSION['status'] = "User Created Successfully";
     header("Location: register.php");
 } else {
-    $_SESSION['status'] = "User nOT Created";
+    $_SESSION['status'] = "User Not Created";
     header("Location: register.php");
 }
 
